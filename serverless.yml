@@ -12,5 +12,11 @@ functions:
     handler: handler.hello
     events:
       - httpApi:
-          path: /
+          path: /hello
+          method: get
+  users:
+    handler: user.users
+    events:
+      - httpApi:
+          path: /users
           method: get
