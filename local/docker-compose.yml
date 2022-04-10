@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  api:
+    build: ./lambda
+    ports:
+      - "4000:4000"
+    volumes:
+      - ..:/app
+    command: sls offline --printOutput
+    image: lambda-python-test-pj-api
+    container_name: lambda-python-test-pj-api
+    tty: true
+      

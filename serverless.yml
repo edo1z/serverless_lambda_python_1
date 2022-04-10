@@ -3,19 +3,27 @@ app: lambda-python-test-pj
 service: lambda-python-test-pj
 frameworkVersion: '3'
 
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+    host: 0.0.0.0
+
 provider:
   name: aws
   runtime: python3.8
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/hello.hello
     events:
       - httpApi:
           path: /hello
           method: get
   users:
-    handler: user.users
+    handler: src/user.users
     events:
       - httpApi:
           path: /users
